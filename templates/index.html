@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Flask app</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+
+<div class="bgded overlay padtop" style="background-image:url('static/01.png');">
+
+	<div id="pageintro" class="hoc clear">
+		<div class="row">
+			<div class="col-lg-8  offset-lg-2" style="padding-bottom:30px;">
+				<div class="center">
+					<form method="post" action="{{ url_for('tasks') }}">
+						<input type="submit" value="Stop/Start" name="stop" />
+						<input type="submit" value="Capture" name="click"/>
+						<input type="submit" value="Recognition" name="Recognition" />
+					</form>
+				</div>
+
+				<strong><nav>
+					<ul class="menu center">
+						<li style="margin: 10px 10px; padding: 10px 10px; width: 120px; border-radius: 5%; background-color: #b92b2b; display: inline!important; "><a style="color=white;" href="{{ url_for('home') }}">Ảnh vừa chụp</a></li>
+						<li style="margin: 10px 10px; padding: 10px 10px; width: 120px; border-radius: 5%; background-color: #b92b2b; display: inline!important; "><a style="color=white;" href="{{ url_for('about') }}">Kết quả</a></li>
+					</ul>
+				</nav></strong>
+			</div>
+			<div class="container">
+			<div style="display: inline-block; width: 600px;">
+			<img src="{{ url_for('video_feed') }}">
+			</div>
+		<div style="display: inline-block; width: 600px;">
+			{% block content %}
+			{% endblock %}
+		</div>
+			</div>
+	<!-- ################################################################################################ -->
+</div>
+
+
+
+
+
+</body>
+</html>
